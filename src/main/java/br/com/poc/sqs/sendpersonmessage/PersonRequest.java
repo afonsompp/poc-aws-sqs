@@ -7,6 +7,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.hibernate.validator.constraints.br.CPF;
 
 public class PersonRequest {
@@ -45,7 +46,7 @@ public class PersonRequest {
 
 	public String toJsonString() throws JsonProcessingException {
 		var mapper = new ObjectMapper();
-
+		mapper.registerModule(new JavaTimeModule());
 		return mapper.writeValueAsString(this);
 	}
 
