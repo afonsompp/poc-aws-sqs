@@ -15,7 +15,7 @@ public class PersonParser {
 		try {
 			return mapper.readValue(personString, Person.class);
 		} catch (JsonProcessingException e) {
-			throw new RuntimeException("parameter cannot be parsed in Person class", e);
+			throw new ConvertPersonException("parameter cannot be parsed in Person class", e);
 
 		}
 	}
